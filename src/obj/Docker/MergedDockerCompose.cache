@@ -1,0 +1,18 @@
+name: dockercompose2369496876939313177
+services:
+  property.api:
+    build:
+      context: C:\Users\MAMM024\source\repos\PropertyMicroservices\src
+      dockerfile: Services/Property/Property.API/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: propertyapi
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 80
+      protocol: tcp
+networks:
+  default:
+    name: dockercompose2369496876939313177_default
