@@ -1,6 +1,12 @@
-using Microsoft.EntityFrameworkCore;
-using Property.API.Data;
+using System.Text;
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Converters;
 using Property.API.Infrastructure;
+using Property.API.Swagger;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,10 +14,41 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(o =>
+{
+    o.DocumentFilter<CustomDocumentFilter>();
+});
+
+builder.Services.AddAutoMapper(typeof(Program));
+
+
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = "PropertyBackend", // Replace with your issuer
+        ValidAudience = "PropertyClient", // Replace with your audience
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("mysecretkey123")) // Replace with your secret key
+    };
+});
+
+
 
 var app = builder.Build();
 
@@ -22,6 +59,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(x => x.AllowAnyHeader()
+    .AllowAnyMethod()
+    .AllowAnyOrigin());
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

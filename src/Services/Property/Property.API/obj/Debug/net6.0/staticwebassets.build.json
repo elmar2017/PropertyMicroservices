@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "qb4fVMqerR9loTjQQQo3+KYT8k4OMCsglWn3VNaksug=",
+  "Hash": "2AncVHKOm4xa+UAdi3XYRfMFnobJXHjWP0Rrh5kfrkQ=",
   "Source": "Property.API",
   "BasePath": "_content/Property.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Property.API\\wwwroot",
+      "Source": "Property.API",
+      "ContentRoot": "C:\\Users\\MAMM024\\source\\repos\\PropertyMicroservices\\src\\Services\\Property\\Property.API\\wwwroot\\",
+      "BasePath": "_content/Property.API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\MAMM024\\source\\repos\\PropertyMicroservices\\src\\Services\\Property\\Property.API\\wwwroot\\HomeImages\\bd41bdf8-f253-4952-bee0-dc1a7939c234.jpg",
+      "SourceId": "Property.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MAMM024\\source\\repos\\PropertyMicroservices\\src\\Services\\Property\\Property.API\\wwwroot\\",
+      "BasePath": "_content/Property.API",
+      "RelativePath": "HomeImages/bd41bdf8-f253-4952-bee0-dc1a7939c234.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\HomeImages\\bd41bdf8-f253-4952-bee0-dc1a7939c234.jpg"
+    }
+  ]
 }

@@ -1,17 +1,43 @@
 name: dockercompose2369496876939313177
 services:
+  orderdb:
+    container_name: orderdb
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: SwN12345678
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    networks:
+      default: null
+    ports:
+    - mode: ingress
+      target: 1433
+      published: "1433"
+      protocol: tcp
+    restart: always
+    volumes:
+    - type: bind
+      source: C:\Users\MAMM024\source\repos\PropertyMicroservices\src\data
+      target: /var/opt/mssql/data
+      bind:
+        create_host_path: true
   property.api:
     build:
       context: C:\Users\MAMM024\source\repos\PropertyMicroservices\src
       dockerfile: Services/Property/Property.API/Dockerfile
+    depends_on:
+      orderdb:
+        condition: service_started
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings:PropertyConnectionString: Server=orderdb;Database=PropertyDb;Encrypt=False;User
+        Id=sa;Password=SwN12345678
     image: propertyapi
     networks:
       default: null
     ports:
     - mode: ingress
       target: 80
+      published: "8000"
       protocol: tcp
 networks:
   default:

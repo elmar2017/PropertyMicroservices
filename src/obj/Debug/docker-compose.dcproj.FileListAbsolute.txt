@@ -27,3 +27,14 @@ C:\Users\MAMM024\source\repos\PropertyMicroservices\src\bin\Debug\Property.API.p
 C:\Users\MAMM024\source\repos\PropertyMicroservices\src\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 C:\Users\MAMM024\source\repos\PropertyMicroservices\src\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 C:\Users\MAMM024\source\repos\PropertyMicroservices\src\obj\Debug\docker-compose.dcproj.CopyComplete
+C:\Users\MAMM024\source\repos\PropertyMicroservices\src\bin\Debug\AutoMapper.dll
+C:\Users\MAMM024\source\repos\PropertyMicroservices\src\bin\Debug\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\MAMM024\source\repos\PropertyMicroservices\src\bin\Debug\Property.API.staticwebassets.runtime.json
+C:\Users\MAMM024\source\repos\PropertyMicroservices\src\bin\Debug\System.Text.Json.dll
+C:\Users\MAMM024\source\repos\PropertyMicroservices\src\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\MAMM024\source\repos\PropertyMicroservices\src\bin\Debug\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\MAMM024\source\repos\PropertyMicroservices\src\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+C:\Users\MAMM024\source\repos\PropertyMicroservices\src\bin\Debug\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\MAMM024\source\repos\PropertyMicroservices\src\bin\Debug\Microsoft.IdentityModel.Logging.dll
+C:\Users\MAMM024\source\repos\PropertyMicroservices\src\bin\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\MAMM024\source\repos\PropertyMicroservices\src\bin\Debug\Microsoft.IdentityModel.Abstractions.dll

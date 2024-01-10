@@ -4,8 +4,11 @@ services:
   property.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:PropertyConnectionString=Server=orderdb;Database=PropertyDb;Encrypt=False;User Id=sa;Password=SwN12345678"  # for docker only
     ports:
-      - "80"
+      - "8000:80"
+    depends_on:
+      - orderdb
   orderdb:
     container_name: orderdb
     environment:
@@ -14,3 +17,5 @@ services:
     restart: always
     ports:
         - "1433:1433"
+    volumes:
+      - ./data:/var/opt/mssql/data
