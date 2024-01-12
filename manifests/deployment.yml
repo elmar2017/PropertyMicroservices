@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: elmarpropertymicroservices 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elmarpropertymicroservices
+  template:
+    metadata:
+      labels:
+        app: elmarpropertymicroservices 
+    spec:
+      containers:
+        - name: elmarpropertymicroservices 
+          image: myacr12012024.azurecr.io/elmarpropertymicroservices
+          ports:
+          - containerPort: 80
